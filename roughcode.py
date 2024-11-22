@@ -1,3 +1,5 @@
+#ask how to do pass total points and grades to the end 
+
 #introduction code
 def introduction():
     print("Welcome to Earlham College, new student. Give us some information about yourself.")
@@ -197,6 +199,41 @@ def math_hw1():
     #grade = grades.append(math_grade)
     #return grade
 
+def math_hw2():
+    grades = []
+    math_grade = 0
+    user_input = input("4+9= ")
+    if user_input == '13':
+        print("Correct.")
+        math_grade += 25
+    else:
+        print("Incorrect.")
+
+    user_input = input("9*8= ")
+    if user_input == '72':
+        print("Correct.")
+        math_grade += 25
+    else:
+        print("Incorrect.")
+
+    user_input = input("4*6= ")
+    if user_input == '24':
+        print("Correct.")
+        math_grade += 25
+    else:
+        print("Incorrect.")
+
+    user_input = input("3+10= ")
+    if user_input == '13':
+        print("Correct.")
+        math_grade += 25
+    else:
+        print("Incorrect.")
+    
+    print("Here is your homework grade: ", math_grade)
+    #grade = grades.append(math_grade)
+    #return grade
+
 
 def english_homework1():
     grades = []
@@ -237,7 +274,8 @@ def math_lab_choice():
 
     if answer == "A":
         print("You go to the math lab.")
-        #math_lab()
+        print("Time for your math exercises!")
+        math_hw2()
 
     if answer == "B":
         print("You did not go to the math lab.")
@@ -345,6 +383,76 @@ def chapter_two():
         print("It is now 9:50am. What do you do?")
         english_choose()
 
+def night_routine():
+    print("It is almost time for bed. How will you end off your night?")
+    print("A. Brush your teeth and do your skincare routine.")
+    print("B. Brush your teeth.")
+    print("C. Slowly fall asleep while looking at your phone and not preparing for bed.")
+    answer = abc_valid()
+    choice_function(answer)
+    if answer == "A":
+        print("You feel amazing and peaceful as you fall asleep. You have splendid dreams.")
+    if answer == "B":
+        print("You fall asleep fine.")
+    if answer == "C":
+        print("Your sleep is dreadful and you feel very unrested.")
+def after_dinner():
+    print("Now you have a few options on what to do next.")
+    print("A. Study for your exams")
+    print("B. Take a shower")
+    print("C. Play videogames")
+    answer = abc_valid()
+    choice_function(answer)
+
+    if answer == "A":
+        print("You are going to ace those exams!")
+    if answer == "B":
+        print("You feel refreshed and relaxed, but a bit sleepy now.")
+    if answer == "C":
+        print("You wasted your night.")
+    night_routine()
+def dinner():
+    print("You open the fridge and decide what to eat...")
+    print("A. Steak with asparagus")
+    print("B. Cereal")
+    print("C. 10 crumbl cookies...")
+    answer = abc_valid()
+    choice_function(answer)
+
+    if answer == "A":
+        print("You feel well fed and ready to study for the night.")
+    if answer == "B":
+        print("You are okay, but it makes you want to snack more throughout the night.")
+    if answer == "C":
+        print("You are going to die from a heart attack in a few days.")
+    after_dinner()  
+
+def chapter_three():
+    print("You just finished your day at school, and now you have come back to your dorm for the night.")
+    print("Do you eat dinner?")
+    print("A. Yes")
+    print("B. No")
+    answer = ab_valid()
+    choice_function(answer)
+
+    if answer == "A":
+        dinner()
+    else:
+        print("You starve.")
+        after_dinner()
+
 introduction()
 chapter_one()
-print(choice_function('A'))
+chapter_three()
+
+#def end():
+    #total points and grades + graph, summary
+
+    #good ending: Your choices, at least for the most part, were good choices. You are a good student, and you will be successful!
+    #neutral ending: Your choices, at least for the most part, were okay choices. You are an average student, and you will probably do fine in life.
+    #bad ending: Your choices, at least for the most part, were bad choices. You are not a very good student. You will probably fail in life. 
+    #show grades, and give quick summary. 
+    #show graph with this
+    #Thanks for playing! You can try again for a different ending!
+
+#end()
