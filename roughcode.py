@@ -1,4 +1,5 @@
 #ask how to do pass total points and grades to the end 
+import matplotlib.pyplot as plt
 
 #introduction code
 def introduction():
@@ -19,18 +20,23 @@ def introduction():
 
 #check answer code
 
-total_points = []
+total_points = 0
 
 
 def choice_function(choice):
+    global total_points
+    print("entering choice function")
     if choice == 'A':
-        total_points.append(2)
+        total_points+=2
+        #print("current points: ", total_points)
         return total_points
     elif choice == 'B':
-        total_points.append(1)
+        total_points+=1
+        #print("current points: ", total_points)
         return total_points
     elif choice == 'C':
-        total_points.append(0)
+        total_points+=0
+        #print("current points: ", total_points)
         return total_points
 
 def abc_valid():
@@ -65,8 +71,10 @@ def breakfast():
     if answer == "B":
         print ("You skipped breakfast, now you have no energy for the day.")
 
+crumbl = 0
+
 def breakfast_open_map():
-    #crumbl = 0
+    global crumbl
     print ("Please choose a breakfast")
     print ("A. Eggs with avocado toast")
     print("B. Cereal with milk ")
@@ -79,7 +87,7 @@ def breakfast_open_map():
         print("This option is okay. You feel moderately energized for the day.")
     else:
         print("You feel awful and sick.")
-        #crumbl += 1
+        crumbl += 1
         #return crumbl
 def get_ready(choice):
     if choice == "A":
@@ -160,12 +168,12 @@ def chapter_one():
     if answer == "C":
         print ("You are going to be late for school unless you leave immediately without being able to properly get ready.")
         chapter_two()
-    
-    
+
+
+total_grades = []
 
 #chapter two code
 def math_hw1():
-    grades = []
     math_grade = 0
     user_input = input("2+1= ")
     if user_input == '3':
@@ -196,11 +204,9 @@ def math_hw1():
         print("Incorrect.")
     
     print("Here is your homework grade: ", math_grade)
-    #grade = grades.append(math_grade)
-    #return grade
+    total_grades.append(math_grade)
 
 def math_hw2():
-    grades = []
     math_grade = 0
     user_input = input("4+9= ")
     if user_input == '13':
@@ -231,12 +237,10 @@ def math_hw2():
         print("Incorrect.")
     
     print("Here is your homework grade: ", math_grade)
-    #grade = grades.append(math_grade)
-    #return grade
+    total_grades.append(math_grade)
 
 
 def english_homework1():
-    grades = []
     grade = 0
     print("Retype these sentences with proper grammar.")
     
@@ -260,7 +264,9 @@ def english_homework1():
     else:
         print("Incorrect.")
     print("Here is your homework grade: ", grade)
-    #return grades.append(grade)
+    total_grades.append(grade)
+
+    
 
 #def math_lab():
     
@@ -281,6 +287,7 @@ def math_lab_choice():
         print("You did not go to the math lab.")
         
 def lunch_options():
+    global crumbl
     print("Here are your choices:")
     print("A. Sandwich")
     print("B. Cereal")
@@ -292,7 +299,7 @@ def lunch_options():
     if answer == "B":
         print("The cereal was alright, but you're not very energized from it.")
     if answer == "C": 
-        #if crumbl == 1:
+        crumbl += 1
             #print("You died from eating 20 crumbl cookies in one day. Game over.")
             #endscreen function
         print("You feel sick and awful.")
@@ -382,6 +389,21 @@ def chapter_two():
         print("You didn't go to class.")
         print("It is now 9:50am. What do you do?")
         english_choose()
+        
+def end():
+    print (total_points)
+
+    fig, ax = plt.subplots()
+    x = ["math hw1", "math hw2", "english hw"]
+    y = total_grades
+    
+    fig = plt.figure(figsize=(10,5))
+    
+    ax.bar(x, y, color = "maroon", width=0.8)
+    ax.set_title("Random bar plot")
+    ax.set_xlabel("Random x")
+    ax.set_ylabel("Random y")
+    plt.show()
 
 def night_routine():
     print("It is almost time for bed. How will you end off your night?")
@@ -396,6 +418,7 @@ def night_routine():
         print("You fall asleep fine.")
     if answer == "C":
         print("Your sleep is dreadful and you feel very unrested.")
+    end()
 def after_dinner():
     print("Now you have a few options on what to do next.")
     print("A. Study for your exams")
@@ -412,6 +435,7 @@ def after_dinner():
         print("You wasted your night.")
     night_routine()
 def dinner():
+    global crumbl
     print("You open the fridge and decide what to eat...")
     print("A. Steak with asparagus")
     print("B. Cereal")
@@ -421,11 +445,20 @@ def dinner():
 
     if answer == "A":
         print("You feel well fed and ready to study for the night.")
+        after_dinner()  
     if answer == "B":
         print("You are okay, but it makes you want to snack more throughout the night.")
+        after_dinner()  
     if answer == "C":
+        crumbl += 1
         print("You are going to die from a heart attack in a few days.")
-    after_dinner()  
+        if crumbl ==3:
+            print ("You end up going to the hospital. Game end!!!!")
+        else:
+            after_dinner()  
+
+
+
 
 def chapter_three():
     print("You just finished your day at school, and now you have come back to your dorm for the night.")
@@ -444,6 +477,8 @@ def chapter_three():
 introduction()
 chapter_one()
 chapter_three()
+
+
 
 #def end():
     #total points and grades + graph, summary
