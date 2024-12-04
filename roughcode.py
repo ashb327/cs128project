@@ -1,4 +1,3 @@
-#ask how to do pass total points and grades to the end 
 import matplotlib.pyplot as plt
 
 #introduction code
@@ -18,7 +17,6 @@ def introduction():
     print(character.capitalize() + ", you are a freshman at Earlham College, ")
 
 
-#check answer code
 
 total_points = 0
 
@@ -268,9 +266,6 @@ def english_homework1():
 
     
 
-#def math_lab():
-    
-
 def math_lab_choice():
     print("It is time for your math lab. What do you do?")
     print("A. Go to the lab session.")
@@ -391,10 +386,18 @@ def chapter_two():
         english_choose()
         
 def end():
-    print (total_points)
-
+    print ("CONGRADUATION!YOU HAVE COMPLETED YOUR DAY!!!!")
+    
+    print ("Here is your total points: " + str(total_points)+"/32")
+    if total_points >=25:
+        print("Your choices, at least for the most part, were good choices. You are a good student, and you will be successful!")
+    elif total_points>15 and total_points<25:
+        print("Your choices, at least for the most part, were okay choices. You are an average student, and you will probably do fine in life.")
+    else:
+        print("Your choices, at least for the most part, were bad choices. You are not a very good student. You will probably fail in life.")
+    print("Here is the summary for your performance from the classes for the day.")
     fig, ax = plt.subplots()
-    x = ["math hw1", "math hw2", "english hw"]
+    x = ["math hw1","english hw", "math hw2"]
     y = total_grades
     
     fig = plt.figure(figsize=(10,5))
@@ -404,6 +407,7 @@ def end():
     ax.set_xlabel("Random x")
     ax.set_ylabel("Random y")
     plt.show()
+    print
 
 def night_routine():
     print("It is almost time for bed. How will you end off your night?")
@@ -453,7 +457,7 @@ def dinner():
         crumbl += 1
         print("You are going to die from a heart attack in a few days.")
         if crumbl ==3:
-            print ("You end up going to the hospital. Game end!!!!")
+            print ("You chose to eat 30 crumbl cookies during the days and END UP GOING TO THE HOSPITAL. GAME OVER!!!!")
         else:
             after_dinner()  
 
@@ -477,17 +481,3 @@ def chapter_three():
 introduction()
 chapter_one()
 chapter_three()
-
-
-
-#def end():
-    #total points and grades + graph, summary
-
-    #good ending: Your choices, at least for the most part, were good choices. You are a good student, and you will be successful!
-    #neutral ending: Your choices, at least for the most part, were okay choices. You are an average student, and you will probably do fine in life.
-    #bad ending: Your choices, at least for the most part, were bad choices. You are not a very good student. You will probably fail in life. 
-    #show grades, and give quick summary. 
-    #show graph with this
-    #Thanks for playing! You can try again for a different ending!
-
-#end()
