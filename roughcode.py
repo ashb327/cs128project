@@ -16,14 +16,11 @@ def introduction():
     character = str(character_name)
     print(character.capitalize() + ", you are a freshman at Earlham College, ")
 
-
-
 total_points = 0
 
 
 def choice_function(choice):
     global total_points
-    print("entering choice function")
     if choice == 'A':
         total_points+=2
         #print("current points: ", total_points)
@@ -264,6 +261,9 @@ def english_homework1():
     print("Here is your homework grade: ", grade)
     total_grades.append(grade)
 
+    
+
+#def math_lab():
     
 
 def math_lab_choice():
